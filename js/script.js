@@ -1,3 +1,55 @@
+// --- FUNÇÃO SLIDER AUTOMÁTICO RESPONSIVO ---
+function inicializarSlider(idSlider, intervaloEmMilissegundos) {
+    const sliderContainer = document.getElementById(idSlider);
+    if (!sliderContainer) return;
+
+    const slides = sliderContainer.querySelectorAll('.slider__item');
+    let indiceAtual = 0;
+    const totalSlides = slides.length;
+
+    // Função para aplicar a imagem de fundo correta (desktop ou mobile)
+    function aplicarImagemDeFundo() {
+        slides.forEach(slide => {
+            const larguraJanela = window.innerWidth;
+            let caminhoImagem;
+
+            if (larguraJanela < 768) { // Consideramos 768px como breakpoint para mobile
+                caminhoImagem = slide.dataset.mobileImg;
+            } else {
+                caminhoImagem = slide.dataset.desktopImg;
+            }
+            slide.style.backgroundImage = `url('${caminhoImagem}')`;
+        });
+    }
+
+    // Aplica as imagens assim que o slider é inicializado e ao redimensionar
+    aplicarImagemDeFundo();
+    window.addEventListener('resize', aplicarImagemDeFundo);
+
+
+    function proximoSlide() {
+        // Remove a classe ativa do slide atual
+        slides[indiceAtual].classList.remove('item--ativo');
+
+        // Calcula o índice do próximo slide
+        indiceAtual = (indiceAtual + 1) % totalSlides;
+
+        // Adiciona a classe ativa ao próximo slide
+        slides[indiceAtual].classList.add('item--ativo');
+    }
+
+    // Inicia a troca automática
+    setInterval(proximoSlide, intervaloEmMilissegundos);
+}
+
+// Inicializa o slider do banner com intervalo de 10 segundos (10000 ms)
+document.addEventListener('DOMContentLoaded', function() {
+    // ... [Seu código anterior do menu mobile aqui] ...
+
+    inicializarSlider('bannerSlider', 10000); // 10 segundos
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const botaoMenu = document.querySelector('.menu-mobile__botao');
     const menuNavegacao = document.querySelector('.menu-navegacao');
@@ -31,4 +83,35 @@ document.addEventListener('DOMContentLoaded', function() {
             cabecalho.classList.remove('cabecalho--rolando');
         }
     });
+});
+
+// --- FUNÇÃO SLIDER AUTOMÁTICO ---
+function inicializarSlider(idSlider, intervaloEmMilissegundos) {
+    const sliderContainer = document.getElementById(idSlider);
+    if (!sliderContainer) return; // Sai se o slider não existir
+
+    const slides = sliderContainer.querySelectorAll('.slider__item');
+    let indiceAtual = 0;
+    const totalSlides = slides.length;
+
+    function proximoSlide() {
+        // Remove a classe ativa do slide atual
+        slides[indiceAtual].classList.remove('item--ativo');
+
+        // Calcula o índice do próximo slide
+        indiceAtual = (indiceAtual + 1) % totalSlides;
+
+        // Adiciona a classe ativa ao próximo slide
+        slides[indiceAtual].classList.add('item--ativo');
+    }
+
+    // Inicia a troca automática
+    setInterval(proximoSlide, intervaloEmMilissegundos);
+}
+
+// Inicializa o slider do banner com intervalo de 10 segundos (10000 ms)
+document.addEventListener('DOMContentLoaded', function() {
+    // ... [Seu código anterior do menu mobile aqui] ...
+
+    inicializarSlider('bannerSlider', 10000); // 10 segundos
 });
