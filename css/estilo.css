@@ -1,0 +1,910 @@
+/* -------------------------------------------------------------------
+ * CONFIGURAÇÕES GLOBAIS (RESET, VARIÁVEIS, TIPOGRAFIA)
+ * ------------------------------------------------------------------- */
+:root {
+    /* Cores */
+    --cor-primaria: #004A77;    /* Azul Marinho (Confiança) */
+    --cor-secundaria: #00BFFF;  /* Azul Céu / Ciano (Saúde, Destaque) */
+    --cor-fundo: #F5F7FA;       /* Cinza Claro Suave */
+    --cor-texto-principal: #333;
+    --cor-texto-claro: #FFF;
+
+    /* Fontes */
+    --fonte-titulo: 'Montserrat', sans-serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+
+    /* Espaçamento base (para responsividade) */
+    --espacamento-padrao: 1.5rem;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Estilo Básico do Botão */
+.botao {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.botao--primario {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-claro);
+    border: 2px solid var(--cor-secundaria);
+}
+
+.botao--primario:hover {
+    background-color: #0099CC; /* Tom mais escuro */
+    transform: translateY(-2px);
+}
+
+.botao--whatsapp {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: var(--cor-texto-claro);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+
+/* -------------------------------------------------------------------
+ * CABEÇALHO E NAVEGAÇÃO (MOBILE FIRST)
+ * ------------------------------------------------------------------- */
+.cabecalho {
+    background-color: var(--cor-texto-claro);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    position: sticky; /* Para fixar o header - "Stickiness" */
+    top: 0;
+    z-index: 1000;
+}
+
+.cabecalho__conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+/* Navegação Mobile (Padrão: Oculta) */
+.menu-navegacao {
+    position: absolute;
+    top: 100%; /* Abaixo do cabeçalho */
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-primaria);
+    transform: translateX(-100%); /* Esconde para a esquerda */
+    transition: transform 0.3s ease-in-out;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu-navegacao.esta-aberto {
+    transform: translateX(0); /* Mostra o menu */
+}
+
+.menu-navegacao__lista {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.menu-navegacao__link {
+    display: block;
+    padding: 1rem var(--espacamento-padrao);
+    color: var(--cor-texto-claro);
+    font-family: var(--fonte-titulo);
+    transition: background-color 0.2s;
+}
+
+.menu-navegacao__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Botão de Menu Hambúrguer (Apenas para Mobile) */
+.menu-mobile__botao {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 30px;
+    padding: 0;
+    margin-left: 1rem;
+    z-index: 10;
+}
+
+.menu-mobile__botao span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--cor-primaria);
+    border-radius: 10px;
+}
+
+/* Oculta o botão do WhatsApp no cabeçalho em mobile (será reposicionado ou oculto conforme a estratégia) */
+.cabecalho .botao--whatsapp {
+    display: none; 
+}
+
+
+/* -------------------------------------------------------------------
+ * BANNER HERO (MOBILE FIRST)
+ * ------------------------------------------------------------------- */
+.banner-hero {
+    /* Usando a imagem gerada ou um placeholder de alto padrão */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/banner-nefrologia.jpg') no-repeat center center/cover;
+    color: var(--cor-texto-claro);
+    padding: 4rem 0; /* Bom espaçamento para mobile */
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.banner-hero__conteudo {
+    /* Centraliza o conteúdo no container */
+    margin: 0 auto;
+}
+
+.banner-hero__titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--espacamento-padrao);
+    line-height: 1.2;
+}
+
+.banner-hero__subtitulo {
+    font-size: 1rem;
+    margin-bottom: var(--espacamento-padrao);
+}
+
+.botao--grande {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+}
+
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    
+    /* CABEÇALHO */
+    .cabecalho {
+        padding: 0.75rem 0;
+    }
+
+    .cabecalho__conteudo {
+        /* Adiciona espaço para o botão do whatsapp */
+        justify-content: flex-start; 
+        gap: 2rem; 
+    }
+
+    /* Oculta o botão de hambúrguer em desktop */
+    .menu-mobile__botao {
+        display: none;
+    }
+
+    /* Navegação Desktop (Padrão: Visível) */
+    .menu-navegacao {
+        position: static;
+        width: auto;
+        background-color: transparent;
+        transform: none;
+        flex-grow: 1; /* Permite que o menu ocupe o espaço central */
+    }
+
+    .menu-navegacao__lista {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    
+    .menu-navegacao__link {
+        padding: 0.5rem 0;
+        color: var(--cor-texto-principal);
+        font-weight: 600;
+        position: relative;
+    }
+
+    /* Efeito de destaque para links em desktop */
+    .menu-navegacao__link:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 3px;
+        background: var(--cor-secundaria);
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+
+    .menu-navegacao__link:hover:after {
+        width: 100%;
+    }
+
+    /* Exibe o botão do WhatsApp no cabeçalho em desktop */
+    .cabecalho .botao--whatsapp {
+        display: inline-block;
+    }
+
+    /* BANNER HERO */
+    .banner-hero {
+        padding: 6rem 0;
+        min-height: 80vh;
+        text-align: left;
+    }
+    
+    .banner-hero__conteudo {
+        margin: 0;
+        max-width: 50%; /* Ocupa metade da tela para não poluir */
+    }
+
+    .banner-hero__titulo {
+        font-size: 3rem;
+    }
+
+    .banner-hero__subtitulo {
+        font-size: 1.15rem;
+    }
+}
+/* -------------------------------------------------------------------
+ * SEÇÃO GERAL (TÍTULOS E ESPAÇAMENTO)
+ * ------------------------------------------------------------------- */
+.secao {
+    padding: 3rem 0; /* Espaçamento padronizado para mobile */
+}
+
+.titulo-secao {
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo-secao {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2.5rem; /* Bom espaço antes dos cards */
+}
+
+/* -------------------------------------------------------------------
+ * ESTILIZAÇÃO DOS CARDS DE SERVIÇOS
+ * ------------------------------------------------------------------- */
+.especialidades__grid {
+    display: grid;
+    /* Mobile: 1 coluna, ocupando a largura total */
+    grid-template-columns: 1fr; 
+    gap: var(--espacamento-padrao);
+}
+
+.card {
+    background-color: var(--cor-texto-claro);
+    padding: var(--espacamento-padrao);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra sutil para alto padrão */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card__icone {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--cor-texto-claro);
+}
+
+.icone--primario {
+    background-color: var(--cor-primaria);
+}
+
+.icone--secundario {
+    background-color: var(--cor-secundaria);
+}
+
+.icone--destaque {
+    background-color: #00CC00; /* Um verde um pouco diferente para o multidisciplinar */
+}
+
+.card__titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    color: var(--cor-primaria);
+    margin-bottom: 0.75rem;
+}
+
+.card__texto {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.card__link {
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    transition: color 0.2s;
+    /* Efeito de sublinhado animado para links internos */
+    border-bottom: 1px solid transparent; 
+}
+
+.card__link:hover {
+    color: var(--cor-primaria);
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .secao {
+        padding: 5rem 0; /* Mais espaço em desktop */
+        margin-bottom: 50px;
+    }
+
+    .titulo-secao {
+        font-size: 2.5rem;
+    }
+
+    /* Grid de 3 colunas em desktop */
+    .especialidades__grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* -------------------------------------------------------------------
+ * SEÇÃO CORPO CLÍNICO / PROFISSIONAIS
+ * ------------------------------------------------------------------- */
+.corpo-clinico {
+    background-color: var(--cor-texto-claro); /* Fundo claro para contrastar com a seção anterior */
+}
+
+.corpo-clinico__grid {
+    display: grid;
+    /* Mobile: 1 coluna, centralizado */
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profissional-card {
+    background-color: var(--cor-fundo);
+    border-radius: 8px;
+    padding: var(--espacamento-padrao);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.profissional-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 74, 119, 0.1); /* Sombra sutil com a cor primária */
+}
+
+.profissional-card__foto {
+    width: 120px; /* Tamanho padronizado da foto */
+    height: 120px;
+    margin: 0 auto 1rem auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--cor-secundaria); /* Borda de destaque */
+}
+
+.profissional-card__foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+    display: block;
+}
+
+.profissional-card__nome {
+    font-family: var(--fonte-titulo);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 0.25rem;
+}
+
+.profissional-card__especialidade {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.profissional-card__crm {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 1rem;
+}
+
+/* Estilo para o botão secundário (usado no card do perfil) */
+.botao--secundario {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+.botao--secundario:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    transform: translateY(-1px);
+}
+
+.corpo-clinico__chamada {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--cor-texto-principal);
+    font-weight: 600;
+}
+
+.corpo-clinico__chamada a {
+    color: var(--cor-secundaria);
+    transition: color 0.3s;
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 600px) {
+    /* Tablet/Pequeno Desktop: 2 colunas */
+    .corpo-clinico__grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktop: 3 ou mais colunas */
+    .corpo-clinico__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* -------------------------------------------------------------------
+ * SEÇÃO SOBRE NÓS
+ * ------------------------------------------------------------------- */
+.sobre-nos {
+    background-color: var(--cor-fundo);
+}
+
+.sobre-nos__conteudo {
+    /* No mobile, o conteúdo fica empilhado (texto e depois imagem) */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.titulo-secao--esquerda {
+    text-align: left; /* Alinhamento especial para o texto nesta seção */
+}
+
+.sobre-nos__texto p {
+    margin-bottom: var(--espacamento-padrao);
+    color: #444;
+}
+
+/* Missão, Visão e Valores (MVV) */
+.sobre-nos__mvv {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2.5rem 0;
+}
+
+.mvv__titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 0.25rem;
+    /* Destaque visual: linha sutil abaixo do título do MVV */
+    border-bottom: 2px solid var(--cor-secundaria);
+    padding-bottom: 5px;
+    display: inline-block; /* Para que a borda só pegue o texto */
+}
+
+.mvv__descricao {
+    font-size: 0.95rem;
+    margin-bottom: 0; /* Remove o espaçamento de parágrafo padrão */
+}
+
+/* Imagem */
+.sobre-nos__imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 74, 119, 0.2); /* Sombra mais forte para destaque */
+}
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    .sobre-nos__conteudo {
+        /* Desktop: 2 colunas */
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .sobre-nos__texto {
+        /* Ocupa 55% do espaço */
+        flex: 1.1; 
+        padding-right: 3rem;
+    }
+
+    .sobre-nos__imagem {
+        /* Ocupa 45% do espaço */
+        flex: 0.9;
+    }
+
+    /* MVV em linha (para dar mais contraste na vertical) */
+    .sobre-nos__mvv {
+        flex-direction: row;
+        flex-wrap: wrap; /* Garante quebras de linha se necessário */
+        gap: 1rem;
+    }
+
+    .mvv__item {
+        /* Faz com que cada item do MVV ocupe aproximadamente 1/3 do espaço */
+        flex: 1 1 calc(33.33% - 1rem); 
+        padding-right: 1rem;
+    }
+
+    .mvv__titulo {
+        font-size: 1.1rem;
+    }
+}
+
+/* -------------------------------------------------------------------
+ * SEÇÃO CONTATO E LOCALIZAÇÃO
+ * ------------------------------------------------------------------- */
+.contato {
+    background-color: var(--cor-texto-claro);
+    padding-bottom: 0; /* Para o mapa ir até a borda inferior */
+}
+
+.contato__conteudo {
+    display: flex;
+    flex-direction: column; /* Mobile: empilha formulário e mapa */
+    gap: 2.5rem;
+}
+
+.contato__info {
+    padding-bottom: 2rem; /* Espaço entre o info e o mapa no mobile */
+}
+
+.contato__info p {
+    margin-bottom: var(--espacamento-padrao);
+    color: #444;
+}
+
+.contato__lista {
+    margin-bottom: 2rem;
+}
+
+.contato__lista li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.contato__lista li .fas,
+.contato__lista li .fab {
+    color: var(--cor-primaria);
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    width: 25px; /* Para alinhar os ícones */
+    text-align: center;
+}
+
+.contato__subtitulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+}
+
+/* Formulário de Contato */
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.2); /* Sombra suave de foco */
+    outline: none;
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar apenas na vertical */
+    min-height: 100px;
+}
+
+/* Mapa */
+.contato__mapa {
+    width: 100%; /* Ocupa 100% da largura disponível */
+    overflow: hidden; /* Garante que o iframe não saia do container */
+    border-radius: 8px; /* Cantos arredondados para o mapa também */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contato__mapa iframe {
+    border-radius: 8px; /* Aplica arredondamento ao iframe */
+}
+
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 992px) {
+    .contato__conteudo {
+        flex-direction: row; /* Desktop: formulário e mapa lado a lado */
+        justify-content: space-between;
+        align-items: flex-start; /* Alinha o topo dos elementos */
+    }
+
+    /* INVERTEMOS A ORDEM DE EXIBIÇÃO AQUI COM 'order' */
+    .contato__mapa {
+        order: 1; /* Faz o mapa aparecer primeiro (à esquerda) */
+        flex: 1.1; /* O mapa ocupa mais espaço */
+        padding-right: 2.5rem; /* Espaço entre mapa e info */
+    }
+
+    .contato__info {
+        order: 2; /* Faz o formulário aparecer segundo (à direita) */
+        flex: 0.9; /* Dá um pouco mais de espaço para as informações */
+        padding-bottom: 0; /* Remove padding inferior em desktop */
+    }
+}
+
+/* -------------------------------------------------------------------
+ * RODAPÉ
+ * ------------------------------------------------------------------- */
+.rodape {
+    background-color: var(--cor-primaria); /* Fundo com a cor principal */
+    color: var(--cor-texto-claro);
+    padding-top: 3rem; /* Espaçamento no topo do footer */
+    font-size: 0.95rem;
+}
+
+.rodape__conteudo {
+    display: flex;
+    flex-direction: column; /* Mobile: colunas empilhadas */
+    gap: 2.5rem;
+    margin-bottom: 2.5rem; /* Espaço antes da seção de copyright */
+}
+
+.rodape__coluna {
+    text-align: center; /* Centraliza o conteúdo das colunas no mobile */
+}
+
+.rodape__logo {
+    font-size: 1.8rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 0.75rem;
+    display: inline-block; /* Para o margin-bottom funcionar */
+}
+
+.rodape__descricao {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.rodape__titulo-coluna {
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: var(--cor-secundaria); /* Títulos das colunas em cor de destaque */
+}
+
+/* Links em Listas (Navegação, Serviços) */
+.rodape__lista-links li {
+    margin-bottom: 0.75rem;
+}
+
+.rodape__lista-links a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+.rodape__lista-links a:hover {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+/* Lista de Contato Rápido no Rodapé */
+.rodape__lista-contato li {
+    display: flex;
+    align-items: flex-start; /* Alinha o texto com o ícone */
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rodape__lista-contato li .fas,
+.rodape__lista-contato li .fab {
+    color: var(--cor-secundaria);
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    width: 20px; /* Alinha os ícones */
+    text-align: center;
+}
+
+.rodape__lista-contato a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s;
+}
+
+.rodape__lista-contato a:hover {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+/* Redes Sociais */
+.redes-sociais {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center; /* Centraliza no mobile */
+    gap: 1rem;
+}
+
+.redes-sociais a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--cor-texto-claro);
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.redes-sociais a:hover {
+    background-color: var(--cor-secundaria);
+    transform: translateY(-3px);
+}
+
+
+/* Copyright Section */
+.rodape__copyright {
+    background-color: rgba(0, 0, 0, 0.2); /* Fundo mais escuro para o copyright */
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rodape__copyright p {
+    margin: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.rodape__copyright a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+.rodape__copyright a:hover {
+    text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------
+ * MEDIA QUERIES (ADAPTAÇÃO PARA DESKTOP)
+ * ------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    .rodape__conteudo {
+        flex-direction: row; /* Desktop: colunas lado a lado */
+        justify-content: space-between;
+        text-align: left; /* Alinha o texto das colunas à esquerda */
+    }
+
+    .rodape__coluna {
+        flex: 1; /* Distribui o espaço igualmente */
+        padding: 0 1rem;
+    }
+
+    .rodape__coluna--logo {
+        flex: 1.5; /* Coluna da logo um pouco maior */
+        text-align: left;
+    }
+
+    .redes-sociais {
+        justify-content: flex-start; /* Alinha ícones à esquerda */
+    }
+
+    .rodape__lista-contato li {
+        justify-content: flex-start; /* Garante alinhamento à esquerda */
+    }
+}
