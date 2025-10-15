@@ -466,6 +466,7 @@ ul {
     .titulo-secao {
         font-size: 2.7rem;
         margin-bottom: 40px;
+        padding-top: 30px;
     }
 
     /* Grid de 3 colunas em desktop */
@@ -792,6 +793,7 @@ ul {
     font-weight: 700;
     color: var(--cor-secundaria);
     margin-bottom: 0.5rem;
+    padding-top: 50px;
 }
 
 .faq__grid {
@@ -1192,6 +1194,7 @@ textarea {
 .rodape__lista-contato li {
     display: flex;
     align-items: flex-start; /* Alinha o texto com o ícone */
+    justify-content: center;
     margin-bottom: 0.75rem;
     color: rgba(255, 255, 255, 0.8);
 }
