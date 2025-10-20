@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato - Renal Vida</title>
+  <meta name="description" content="Entre em contato com a equipe Renal Care. Agende sua consulta ou tire dúvidas.">
+  <link rel="stylesheet" href="css/estilo.css" />
+  <link rel="stylesheet" href="css/estilo-extra.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="cabecalho" id="topo">
+        <div class="container cabecalho__conteudo" id="logo">
+            <a href="index.html" class="logo" aria-label="Página Inicial da Clínica Renal Care">
+                <img src="img/logo-renalvida.png" alt="logo" >
+            </a>
+
+            <button class="menu-mobile__botao" aria-expanded="false" aria-controls="menu-navegacao" aria-label="Abrir Menu Principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="menu-navegacao" id="menu-navegacao">
+                <ul class="menu-navegacao__lista">
+                    <li><a href="especialidades.html" class="menu-navegacao__link">Especialidades</a></li>
+                    <li><a href="corpo-clinico.html" class="menu-navegacao__link">Corpo Clínico</a></li>
+                    <li><a href="quem-somos.html" class="menu-navegacao__link">Sobre Nós</a></li>
+                    <li><a href="contato.html" class="menu-navegacao__link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <a href="https://wa.me/seunumerowhatsapp" target="_blank" class="botao botao--whatsapp" rel="noopener noreferrer">
+                Agende Rápido
+            </a>
+        </div>
+    </header>
+  <section class="banner-interno" style="background-image: url('img/banner3-desktop.jpg');">
+    <div class="container conteudo-banner">
+      <h2>Contato</h2>
+      <p class="breadcrumb"><a href="index.html">Início</a> / Contato</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="secao contato">
+      <div class="container contato__conteudo">
+        
+        <div class="contato__mapa">
+          <iframe src="https://www.google.com/maps?q=Clínica+Renal+Vida+Brasília&output=embed"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+
+        <div class="contato__info">
+          <h2 class="titulo-secao titulo-secao--esquerda">Fale Conosco</h2>
+          <p>Entre em contato para agendar sua consulta ou tirar dúvidas. Nossa equipe está pronta para atender você.</p>
+          
+          <ul class="contato__lista">
+            <li><span class="fas fa-map-marker-alt"></span> CNM 01, Bloco 1, Lote 2 Ceilândia Centro - DF</li>
+            <li><span class="fas fa-phone-alt"></span> (61) 3797-6850</li>
+            <li><span class="fab fa-whatsapp"></span> <a href="https://wa.me/5561991020570" target="_blank" rel="noopener noreferrer">+55 61 99102-0570</a></li>
+            <li><span class="fas fa-clock"></span> Seg a Sex: 08h - 18h | Sáb: 08h - 12h</li>
+          </ul>
+
+          <h3 class="contato__subtitulo">Envie sua mensagem:</h3>
+          <form class="formulario-contato">
+            <div class="campo">
+              <label for="nome">Seu Nome:</label>
+              <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            <div class="campo">
+              <label for="email">Seu E-mail:</label>
+              <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+            </div>
+            <div class="campo">
+              <label for="mensagem">Mensagem:</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem aqui..." required></textarea>
+            </div>
+            <button type="submit" class="botao botao--primario">Enviar Mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+            </main> <footer class="rodape">
+        <div class="container rodape__conteudo">
+            
+            <div class="rodape__coluna rodape__coluna--logo">
+                <a href="index.html" class="logo rodape__logo" aria-label="Página Inicial da Clínica Renal Care">
+                    Renal Vida
+                </a>
+                <p class="rodape__descricao">Excelência em nefrologia e cuidado humanizado para a saúde dos seus rins.</p>
+                <div class="redes-sociais">
+                    <a href="https://facebook.com/renalcare" target="_blank" rel="noopener noreferrer" aria-label="Facebook da Renal Care"><span class="fab fa-facebook-f"></span></a>
+                    <a href="https://instagram.com/renalcare" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Renal Care"><span class="fab fa-instagram"></span></a>
+                    <a href="https://linkedin.com/company/renalcare" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Renal Care"><span class="fab fa-linkedin-in"></span></a>
+                </div>
+            </div>
+
+            <div class="rodape__coluna rodape__coluna--links">
+                <h4 class="rodape__titulo-coluna">Navegação</h4>
+                <ul class="rodape__lista-links">
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#profissionais">Corpo Clínico</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape__coluna rodape__coluna--servicos">
+                <h4 class="rodape__titulo-coluna">Serviços</h4>
+                <ul class="rodape__lista-links">
+                    <li><a href="#especialidades">Hemodiálise</a></li>
+                    <li><a href="#especialidades">Diálise Peritoneal</a></li>
+                    <li><a href="#especialidades">Consultas Nefrológicas</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape__coluna rodape__coluna--contato-rapido">
+                <h4 class="rodape__titulo-coluna">Fale Conosco</h4>
+                <ul class="rodape__lista-contato">
+                    <li><span class="fas fa-phone-alt"></span> (61) 3797-6850</li>
+                    <li><span class="fab fa-whatsapp"></span> <a href="https://wa.me/seunumerowhatsapp" target="_blank" rel="noopener noreferrer"> (61) 99102-0570</a></li>
+                    <li><span class="fas fa-map-marker-alt"></span> CNM 01, Bloco 1, Lote 2 Ceilância Centro.Brasília, DF</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="rodape__copyright">
+            <div class="container">
+                <p>&copy; 2025 Renal Vida. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX</p>
+                <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js" defer></script>
+    <script type="module" src="js/menu-mobile.js"></script>
+
+  <script type="module" src="js/faq.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</body>
+</html>

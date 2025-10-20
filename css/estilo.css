@@ -22,6 +22,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -386,6 +387,7 @@ ul {
     /* Mobile: 1 coluna, ocupando a largura total */
     grid-template-columns: 1fr; 
     gap: var(--espacamento-padrao);
+    justify-items: center;
 }
 
 .card {
@@ -1296,4 +1298,45 @@ textarea {
     .rodape__lista-contato li {
         justify-content: flex-start; /* Garante alinhamento à esquerda */
     }
+}
+
+/* --------------------------------------- */
+/* Estilo para Banner Interno */
+/* --------------------------------------- */
+.banner-interno {
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.banner-interno::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.banner-interno .conteudo-banner {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-interno h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.breadcrumb a {
+  color: #fff;
+  text-decoration: underline;
 }

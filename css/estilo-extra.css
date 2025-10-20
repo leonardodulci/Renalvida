@@ -1,0 +1,367 @@
+/* ================================================================
+ * CSS UNIFICADO PARA PÁGINAS INTERNAS (estilo-extra.css)
+ * ================================================================ */
+
+/* -------------------- RESET & VARIÁVEIS -------------------- */
+:root {
+  --cor-primaria: #004A77;
+  --cor-secundaria: #00BFFF;
+  --cor-fundo: #f5f5f5;
+  --cor-texto-principal: #333;
+  --cor-texto-claro: #fff;
+
+  --fonte-titulo: 'Montserrat', sans-serif;
+  --fonte-corpo: 'Roboto', sans-serif;
+
+  --espacamento-padrao: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* -------------------- CABEÇALHO -------------------- */
+.cabecalho {
+  background-color: var(--cor-texto-claro);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: bold;
+  
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cor-primaria);
+  display: block;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--cor-primaria);
+  width: 100%;
+}
+
+.menu.ativo {
+  display: flex;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu li a {
+  padding: 1rem;
+  display: block;
+  color: var(--cor-texto-claro);
+  font-family: var(--fonte-titulo);
+}
+
+.menu li a:hover,
+.menu li a.ativo {
+  background-color: var(--cor-secundaria);
+}
+
+/* -------------------- MENU DESKTOP -------------------- */
+@media (min-width: 768px) {
+  .menu {
+    display: flex !important;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: flex-end;
+  }
+
+  .menu ul {
+    flex-direction: row;
+  }
+
+  .menu li a {
+    color: var(--cor-primaria);
+    padding: 0.75rem 1rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu li a.ativo {
+    border-bottom: 3px solid var(--cor-secundaria);
+    background: none;
+  }
+}
+
+/* -------------------- BANNER INTERNO -------------------- */
+.banner-interno {
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  height: 90vh;
+}
+
+.banner-interno::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+.banner-interno .conteudo-banner {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-interno h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: var(--fonte-titulo);
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.breadcrumb a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* -------------------- SEÇÕES GERAIS -------------------- */
+.secao2{
+  margin-top: 40px;
+  min-height: 40vh;
+  font-size: 20px;
+}
+
+
+.secao {
+  padding: 3rem 0;
+      min-height: auto;
+      text-align: center;
+
+}
+
+.secao h2 {
+  font-size: 2rem;
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria);
+  margin-bottom: 1rem;
+}
+
+.secao p {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+.secao.agendamento-cta{
+  min-height: auto;
+  text-align: center;
+}
+/* -------------------- MISSÃO VISÃO VALORES -------------------- */
+.missao-visao-valores {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bloco {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.bloco h3 {
+  font-size: 1.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 0.75rem;
+  font-family: var(--fonte-titulo);
+}
+
+.bloco ul li {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .missao-visao-valores {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .bloco {
+    flex: 1;
+  }
+}
+
+/* -------------------- LISTA DE ESPECIALIDADES -------------------- */
+.lista-especialidades ul {
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+.lista-especialidades li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+/* -------------------- CARDS MÉDICOS -------------------- */
+.cards-equipe {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 4px solid var(--cor-secundaria);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .cards-equipe {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* -------------------- FORMULÁRIO CONTATO -------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+input, textarea {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: var(--fonte-corpo);
+}
+
+button.botao {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button.botao:hover {
+  background-color: #0099cc;
+}
+
+/* -------------------- MAPA -------------------- */
+iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* -------------------- RODAPÉ -------------------- */
+.rodape {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.whatsapp-botao {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+.whatsapp-botao:hover {
+  background-color: #1ebe5d;
+}
