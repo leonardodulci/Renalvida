@@ -131,6 +131,31 @@ ul {
     background: none;
   }
 }
+.menu-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 5px;
+  color: #222;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.menu-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #8CC63F; /* verde linha */
+  transition: width 0.3s ease;
+}
+
+.menu-link:hover::after,
+.menu-link.ativo::after {
+  width: 100%;
+}
 
 /* -------------------- BANNER INTERNO -------------------- */
 .banner-interno {

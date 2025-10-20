@@ -9,3 +9,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('.menu-link');
+
+  // Ativar hover/click
+  links.forEach(link => {
+    link.addEventListener('click', function () {
+      // Remove classe ativo de todos
+      links.forEach(l => l.classList.remove('ativo'));
+
+      // Adiciona ativo ao clicado
+      this.classList.add('ativo');
+    });
+  });
+});
