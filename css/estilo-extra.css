@@ -103,6 +103,34 @@ ul {
 .menu li a.ativo {
   background-color: var(--cor-secundaria);
 }
+/* ---------------------------------------------
+   EFEITO DE LINHA VERDE NOS LINKS DO MENU
+   --------------------------------------------- */
+
+.menu-navegacao__link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-navegacao__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00c37a; /* Verde */
+  transition: width 0.3s ease;
+}
+
+.menu-navegacao__link:hover::after,
+.menu-navegacao__link.link-hover::after {
+  width: 100%;
+}
+
 
 /* -------------------- MENU DESKTOP -------------------- */
 @media (min-width: 768px) {

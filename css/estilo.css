@@ -167,6 +167,34 @@ ul {
     display: none; 
 }
 
+/* ============================
+   LINHA VERDE AO PASSAR O MOUSE NOS LINKS DO MENU
+   ============================ */
+.menu-navegacao__link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-navegacao__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00c37a; /* Verde */
+  transition: width 0.3s ease;
+}
+
+.menu-navegacao__link:hover::after,
+.menu-navegacao__link.link-hover::after {
+  width: 100%;
+}
+
+
 
 /* -------------------------------------------------------------------
  * BANNER HERO (MOBILE FIRST)
@@ -312,22 +340,30 @@ ul {
         position: relative;
     }
 
-    /* Efeito de destaque para links em desktop */
-    .menu-navegacao__link:after {
-        content: '';
-        display: block;
-        width: 0;
-        height: 3px;
-        background: var(--cor-secundaria);
-        transition: width 0.3s;
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-    }
+    .menu-navegacao__link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
 
-    .menu-navegacao__link:hover:after {
-        width: 100%;
-    }
+.menu-navegacao__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00c37a; /* Verde */
+  transition: width 0.3s ease;
+}
+
+.menu-navegacao__link:hover::after,
+.menu-navegacao__link.link-hover::after {
+  width: 100%;
+}
+
 
     /* Exibe o botão do WhatsApp no cabeçalho em desktop */
     .cabecalho .botao--whatsapp {
