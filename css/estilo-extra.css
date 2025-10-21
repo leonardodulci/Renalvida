@@ -20,7 +20,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
+
 
 body {
   font-family: var(--fonte-corpo);
@@ -295,14 +297,62 @@ ul {
 }
 
 /* -------------------- LISTA DE ESPECIALIDADES -------------------- */
-.lista-especialidades ul {
-  padding-left: 1rem;
-  list-style: disc;
+/* Nova grade de especialidades */
+.especialidades-blocos {
+  background-color: #d2dee6;
+  padding: 60px 0;
+  text-align: center;
 }
 
-.lista-especialidades li {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
+.grid-especialidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card-especialidade {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-especialidade:hover {
+  transform: translateY(-5px);
+}
+
+.card-especialidade .icone {
+  font-size: 36px;
+  color: #006a80;
+  margin-bottom: 15px;
+}
+
+.card-especialidade h3 {
+  font-size: 1.1rem;
+  color: #003f5f;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-especialidade .botao--whatsapp {
+  margin-top: auto;
+  background-color: #25D366;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.card-especialidade .botao--whatsapp:hover {
+  background-color: #1ebe5d;
 }
 
 /* -------------------- CARDS MÉDICOS -------------------- */
