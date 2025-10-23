@@ -209,7 +209,7 @@ ul {
     position: relative;
     width: 100%;
     overflow: hidden;
-    min-height: 70vh; /* Altura mínima para mobile */
+    min-height: 85vh; /* Altura mínima para mobile */
     display: flex;
     align-items: center;
 }
@@ -1397,4 +1397,33 @@ textarea {
 
 .botao--mapa i {
   margin-right: 8px;
+}
+
+
+/*------ Botão flutuante---------*/
+.botao-flutuante-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 40px;
+  font-size: 15px;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-flutuante-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+.botao-flutuante-whatsapp i {
+  font-size: 20px;
 }
